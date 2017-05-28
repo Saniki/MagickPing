@@ -41,7 +41,8 @@ while True:
     if package_number == 1:
         # директории которые надо создать
         temp = datetime.datetime.now().strftime("%d-%m-%Y")
-        path = (addr[0], temp, datetime.datetime.now().strftime("%H:%M"))
+        temp = temp + '/' + datetime.datetime.now().strftime("%H:%M")
+        path = (addr[0], temp)
         tmp = ''  # последовательное создание директорий, если директория уже есть то переходим к следующей
         for dir_name in path:
             if len(tmp):
@@ -70,6 +71,7 @@ while True:
 
         # имя файла с учетом директорий, в которых он должен находиться
         file_name = tmp + '/' + file_name
+        file_names[addr[0]] = file_name
         recv_file = open(file_name, 'wb')
         os.chmod(file_name, 0o777)
 
