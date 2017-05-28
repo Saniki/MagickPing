@@ -41,8 +41,7 @@ while True:
     if package_number == 1:
         # директории которые надо создать
         temp = datetime.datetime.now().strftime("%d-%m-%Y")
-        temp = temp + '/' + datetime.datetime.now().strftime("%H:%M")
-        path = (addr[0], temp)
+        path = (addr[0], temp, datetime.datetime.now().strftime("%H:%M"))
         tmp = ''  # последовательное создание директорий, если директория уже есть то переходим к следующей
         for dir_name in path:
             if len(tmp):
